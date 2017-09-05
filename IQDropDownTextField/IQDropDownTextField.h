@@ -88,7 +88,7 @@ extern NSInteger const IQOptionalTextFieldIndex;
 @protocol IQDropDownTextFieldDelegate <UITextFieldDelegate>
 
 @optional
--(void)textField:(nonnull IQDropDownTextField*)textField didSelectItem:(nullable NSString*)item; //Called when textField changes it's selected item. Supported for IQDropDownModeTextPicker
+-(void)textField:(nonnull IQDropDownTextField*)textField didSelectItem:(nullable NSObject*)item; //Called when textField changes it's selected item. Supported for IQDropDownModeTextPicker
 
 -(void)textField:(nonnull IQDropDownTextField*)textField didSelectDate:(nullable NSDate*)date; //Called when textField changes it's selected item. Supported for IQDropDownModeTimePicker, IQDropDownModeDatePicker, IQDropDownModeDateTimePicker
 
@@ -101,7 +101,7 @@ extern NSInteger const IQOptionalTextFieldIndex;
 @protocol IQDropDownTextFieldDataSource <NSObject>
 
 @optional
--(BOOL)textField:(nonnull IQDropDownTextField*)textField canSelectItem:(nonnull NSString*)item;    //Check if an item can be selected by dropdown texField.
+-(BOOL)textField:(nonnull IQDropDownTextField*)textField canSelectItem:(nonnull NSObject*)item;    //Check if an item can be selected by dropdown texField.
 -(IQProposedSelection)textField:(nonnull IQDropDownTextField*)textField proposedSelectionModeForItem:(nonnull NSString*)item;    //If canSelectItem return NO, then textField:proposedSelectionModeForItem: asked for propsed selection mode.
 //IQProposedSelectionAbove: pickerView find the nearest items above the deselected item that can be selected and then selecting that row.
 //IQProposedSelectionBelow: pickerView find the nearest items below the deselected item that can be selected and then selecting that row.
@@ -179,12 +179,12 @@ extern NSInteger const IQOptionalTextFieldIndex;
 /**
  Selected item of pickerView.
  */
-@property (nullable, nonatomic, copy) NSString *selectedItem;
+@property (nullable, nonatomic, copy) NSObject *selectedItem;
 
 /**
  Set selected item of pickerView.
  */
-- (void)setSelectedItem:(nullable NSString*)selectedItem animated:(BOOL)animated;
+- (void)setSelectedItem:(nullable NSObject*)selectedItem animated:(BOOL)animated;
 
 
 ///-------------------------------
@@ -194,7 +194,7 @@ extern NSInteger const IQOptionalTextFieldIndex;
 /**
  Items to show in pickerView. For example. @[ @"1", @"2", @"3" ]. This field must be set.
  */
-@property (nullable, nonatomic, copy) NSArray <NSString*> *itemList;
+@property (nullable, nonatomic, copy) NSArray <NSObject*> *itemList;
 
 /**
  Items to show in pickerView. For example. @[ view1, view2, view3 ]. This field must be set.

@@ -548,7 +548,7 @@ NSInteger const IQOptionalTextFieldIndex =  -1;
     [self.dateTimePicker setLocale:self.dropDownDateTimeFormater.locale];
 }
 
-- (NSObject*)selectedItem
+- (id)selectedItem
 {
     switch (_dropDownMode)
     {
@@ -597,17 +597,17 @@ NSInteger const IQOptionalTextFieldIndex =  -1;
     }
 }
 
--(void)setSelectedItem:(NSObject *)selectedItem
+-(void)setSelectedItem:(id)selectedItem
 {
     [self setSelectedItem:selectedItem animated:NO shouldNotifyDelegate:NO];
 }
 
--(void)setSelectedItem:(NSObject *)selectedItem animated:(BOOL)animated
+-(void)setSelectedItem:(id)selectedItem animated:(BOOL)animated
 {
     [self setSelectedItem:selectedItem animated:animated shouldNotifyDelegate:NO];
 }
 
--(void)setSelectedItem:(NSObject *)selectedItem animated:(BOOL)animated shouldNotifyDelegate:(BOOL)shouldNotifyDelegate
+-(void)setSelectedItem:(id)selectedItem animated:(BOOL)animated shouldNotifyDelegate:(BOOL)shouldNotifyDelegate
 {
     switch (_dropDownMode)
     {
@@ -693,7 +693,7 @@ NSInteger const IQOptionalTextFieldIndex =  -1;
             break;
         }
         case IQDropDownModeTextField:{
-            super.text = selectedItem.description;
+            super.text = selectedItem;
         }
             break;
     }
